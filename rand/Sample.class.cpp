@@ -12,21 +12,29 @@
 
 #include "Sample.class.hpp"
 
-Sample::Sample (void) : nb(33), foo(22), bar1(33){
-	std::cout << "Constructor Called!" << std::endl;
+Sample::Sample (void){
+	std::cout << "Constructor Called" << std::endl;
 }
 
-Sample::Sample(int nb){
-	std::cout << "Parameterized Constructor Called!" << std::endl;
-	this->nb = nb;
+Sample::Sample(int nb, float x) : nb(nb), x(x){
+	std::cout << "Parameterized Constructor Called" << std::endl;
 }
 
 
 Sample::~Sample (void){
-	std::cout << "Destructor Called!" << std::endl;
+	std::cout << "Destructor Called" << std::endl;
 }
 
-void	Sample::bar(void){
-	this->nb = 42;
-	
+void	Sample::debugg(void) const {
+	std::cout << "\n" << "nb : " << this->nb << std::endl;
+	std::cout << "x  : " << this->x<< std::endl;
+	std::cout << "_nb : " << this->_nb << "\n" << std::endl;
+}
+
+void	Sample::set_nb(int nb){
+	this->_nb = nb;
+}
+
+int		Sample::get_nb(void){
+	return (this->_nb);
 }

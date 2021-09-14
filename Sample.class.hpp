@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Sample.class.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ztaouil <ztaouil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/14 17:21:16 by ztaouil           #+#    #+#             */
-/*   Updated: 2021/09/14 19:37:26 by ztaouil          ###   ########.fr       */
+/*   Created: 2021/09/14 19:09:45 by ztaouil           #+#    #+#             */
+/*   Updated: 2021/09/14 19:40:01 by ztaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sample.class.hpp"
+#ifndef SAMPLE_CLASS_HPP
+# define SAMPLE_CLASS_HPP
 
-int		main(){
-	Sample	instance;
-	Sample	instance2(1337);
-	
-	// instance.bar();
-	std::cout << instance.nb << std::endl;
-	std::cout << instance.foo << std::endl;
-	std::cout << instance.bar1 << std::endl;
-	
-	std::cout << instance2.nb << std::endl;
-	
-	return (0);
-}
+# include <iostream>
+
+class Sample{
+	private:
+		Sample(void);
+	public:
+		Sample(int nb);
+		~Sample(void);
+		int		nb;
+		int		foo;
+		int		bar1;
+		void	bar(void);
+};
+
+
+#endif

@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Sample.class.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ztaouil <ztaouil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/14 17:21:16 by ztaouil           #+#    #+#             */
-/*   Updated: 2021/09/14 19:37:26 by ztaouil          ###   ########.fr       */
+/*   Created: 2021/09/14 19:11:55 by ztaouil           #+#    #+#             */
+/*   Updated: 2021/09/14 19:38:00 by ztaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sample.class.hpp"
 
-int		main(){
-	Sample	instance;
-	Sample	instance2(1337);
+Sample::Sample (void) : nb(33), foo(22), bar1(33){
+	std::cout << "Constructor Called!" << std::endl;
+}
+
+Sample::Sample(int nb){
+	std::cout << "Parameterized Constructor Called!" << std::endl;
+	this->nb = nb;
+}
+
+
+Sample::~Sample (void){
+	std::cout << "Destructor Called!" << std::endl;
+}
+
+void	Sample::bar(void){
+	this->nb = 42;
 	
-	// instance.bar();
-	std::cout << instance.nb << std::endl;
-	std::cout << instance.foo << std::endl;
-	std::cout << instance.bar1 << std::endl;
-	
-	std::cout << instance2.nb << std::endl;
-	
-	return (0);
 }

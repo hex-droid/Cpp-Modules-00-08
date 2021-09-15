@@ -33,7 +33,7 @@ class Contact {
 			this->_flag = 1;
 		}
 
-		int		get_flag(void){
+		int		get_flag(void) const{
 			return (this->_flag);
 		}
 

@@ -15,8 +15,8 @@ void	phonebook(void)
 			phonebook.op_search();
 		else if (!line.compare("QUIT"))
 			break;
-		else
-			phonebook.print_usage();
+		else if (!line.length())
+			break;
 	}
 }
 
@@ -25,4 +25,3 @@ int		main()
 	phonebook();
 	return (EXIT_SUCCESS);
 }
-

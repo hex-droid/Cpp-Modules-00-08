@@ -8,7 +8,7 @@ PhoneBook::~PhoneBook(void)
 {
 }
 
-void	PhoneBook::add_contact(std::string *value)
+void	PhoneBook::_add_contact(std::string *value)
 {
 	this->_contact[_index].set_first_name(value[0]);
 	this->_contact[_index].set_last_name(value[1]);
@@ -19,7 +19,7 @@ void	PhoneBook::add_contact(std::string *value)
 	this->_index++;
 }
 
-void	PhoneBook::debugg(int index) const
+void	PhoneBook::_debugg(int index) const
 {	
 
 	if (_contact[index].get_flag() == 1)
@@ -29,43 +29,43 @@ void	PhoneBook::debugg(int index) const
 	}
 }
 
-void	PhoneBook::ext_debugg(void) const
+void	PhoneBook::_ext_debugg(void) const
 {
 	std::string	buffer;
 	int			index;
 
-	ext_formatter("index");ext_formatter("first name");
-	ext_formatter("last name");ext_formatter("nickname");std::cout << std::endl;
+	_ext_formatter("index");_ext_formatter("first name");
+	_ext_formatter("last name");_ext_formatter("nickname");std::cout << std::endl;
 	for (int i = 0; (_contact[i].get_flag() == 1); i++)
 	{
 		std::cout << std::setw(10) << i << "|";
-		ext_formatter(_contact[i].get_firstname());ext_formatter(_contact[i].get_lastname());ext_formatter(_contact[i].get_nickname());
+		_ext_formatter(_contact[i].get_firstname());_ext_formatter(_contact[i].get_lastname());_ext_formatter(_contact[i].get_nickname());
 		std::cout << std::endl;
 	}
 	std::cout << std::endl << "Enter an index : ";
 	std::getline(std::cin, buffer);
 	std::cout << std::endl;
-	if (!valid_buffer(buffer))
+	if (!_valid_buffer(buffer))
 	{	
-		print_err("Invalid index");
-		ext_debugg();
+		_print_err("Invalid index");
+		_ext_debugg();
 	}
 	index = std::stoi(buffer);
-	if (valid_index(index))
+	if (_valid_index(index))
 	{
 		if (_contact[index].get_flag() == 1)
-			this->debugg(index);
+			this->_debugg(index);
 	}
 	else
 	{
-		print_err("Invalid index");
-		ext_debugg();
+		_print_err("Invalid index");
+		_ext_debugg();
 	}
 }
 
 void	PhoneBook::op_search(void)
 {
-	this->ext_debugg();
+	this->_ext_debugg();
 }
 
 void	PhoneBook::print_usage(void)
@@ -94,8 +94,8 @@ void	PhoneBook::op_add(void)
 			std::cout << "Enter " << std::left << std::setw(15) << key[i] << ": ";
 			std::getline(std::cin, value[i]);
 		}
-		this->add_contact(value);
+		this->_add_contact(value);
 	}
 	else
-		print_err("PhoneBook is full");
+		_print_err("PhoneBook is full");
 }

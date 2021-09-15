@@ -17,18 +17,21 @@ void	op_add(void)
 	
 	for (int i = 0; i < 5; i++)
 	{
-		std::cout << "Enter " << key[i] << " : " << std::endl;
+		std::cout << "Enter " << key[i] << " : ";
 		std::cin >> buffer;
+
 		value[i] = buffer;
 	}
 	if (phonebook.get_index() < 8)
 		phonebook.add_contact(value);
 	else
 		print_err();
+	phonebook.debugg();
 }
 void	op_search(void)
 {
 	std::cout << "SEARCH!" << std::endl;
+
 }
 
 void	print_err(void)

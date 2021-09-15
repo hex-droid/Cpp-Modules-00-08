@@ -19,16 +19,8 @@ void	PhoneBook::add_contact(std::string *value){
 }
 
 void	PhoneBook::debugg(void)	const {	
-	int i = 0;
-	int	tmp;
 
-	tmp = Contact::get_flag();
-	while (tmp)
-	{
-		this->_contact[i].debugg();
-		i++;
-		tmp = Contact::get_flag();
-	}
+	this->_contact[0].debugg();
 }
 
 int		PhoneBook::get_index(void){

@@ -7,8 +7,8 @@ void	phonebook(void)
 
 	while (42)
 	{
-		std::cout << "Enter Command: ";
-		std::cin >> line;
+		std::cout << std::endl << "Enter Command: ";
+		std::getline(std::cin, line);
 		if (!line.compare("ADD"))
 			phonebook.op_add();
 		else if (!line.compare("SEARCH"))

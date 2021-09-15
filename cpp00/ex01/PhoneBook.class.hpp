@@ -26,13 +26,18 @@ class PhoneBook{
 				return (true);
 			return (false);
 		}
-		bool	valid_index(std::string index) const {
-			for (int i = 0; index[i]; i++)
-			{
-				if (!is_num(index[i]))
-					return (false);
-			}
+		bool	valid_buffer(std::string index) const {
+			if (index.length() != 1)
+				return (false);
+			if (!is_num(index[0]))
+				return (false);
 			return (true);
+		}
+		bool	valid_index(int index) const {
+			if (_contact[index].get_flag() == 1)
+				if (index >= 0 && index <= 7)
+					return (true);
+			return (false);
 		}
 		void	debugg(int index) const;
 		void	ext_debugg(void) const;

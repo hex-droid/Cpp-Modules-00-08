@@ -6,7 +6,7 @@
 
 class PhoneBook{
 	private:
-		Contact _contact[7];
+		Contact _contact[8];
 		int		_index;
 		void	print_err(void);
 		void	add_contact(std::string *value);
@@ -20,7 +20,8 @@ class PhoneBook{
 		void	op_search(void);
 		void	print_usage(void);
 
-		void	debugg(void) const;
+		void	debugg(int index) const;
+		void	ext_debugg(void) const;
 };
 
 
@@ -28,3 +29,8 @@ class PhoneBook{
 void	phonebook(void);
 
 #endif
+
+/*
+
+index,first name,last nameandnickname.
+*/

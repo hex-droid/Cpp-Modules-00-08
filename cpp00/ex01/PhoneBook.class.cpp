@@ -21,27 +21,42 @@ void	PhoneBook::add_contact(std::string *value)
 	this->_index++;
 }
 
-void	PhoneBook::debugg(void)	const
+void	PhoneBook::debugg(int index) const
 {	
-	int		i = 0;
 
-	while (_contact[i].get_flag())
+	if (_contact[index].get_flag() == 1)
 	{
-		_contact[i].debugg();
+		_contact[index].debugg();
 		std::cout << std::endl;
-		i++;
 	}
+}
+
+void	PhoneBook::ext_debugg(void) const
+{
+//	int	index;
+
+	std::cout << "index     |" << "first name|" << "last name |" << "nickname  " << std::endl;
+	for (int i = 0; (_contact[i].get_flag() == 1); i++)
+	{
+		std::cout << i << _contact[i].get_firstname() << _contact[i].get_lastname() << _contact[i].get_nickname() << std::endl;
+	}
+//	std::cout << std::endl << "Enter an index : ";
+//	std::cin >> index;
+//	if (_contact[index].get_flag() == 1)
+//		this->debugg(index);
 }
 
 void	PhoneBook::op_search(void)
 {
 	std::cout << "SEARCH!" << std::endl;
-	this->debugg();
-
+	
+	this->ext_debugg();
+	std::cout << "_index : " << _index << std::endl;
 }
 
 void	PhoneBook::print_err(void)
 {
+	std::cout << "PhoneBook is Full" << std::endl;
 	return;
 }
 
@@ -64,13 +79,16 @@ void	PhoneBook::op_add(void)
 	key[2] = "nickname";
 	key[3] = "phonenumber";
 	key[4] = "darkestsecret";
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << "Enter " << key[i] << " : ";
-		std::cin >> value[i];
-	}
+	
 	if (_index < 8)
+	{
+		for (int i = 0; i < 5; i++)
+		{
+			std::cout << "Enter " << key[i] << " : ";
+			std::cin >> value[i];
+		}
 		this->add_contact(value);
+	}
 	else
 		print_err();
 }

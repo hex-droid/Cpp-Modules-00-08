@@ -33,6 +33,18 @@ class Contact {
 			this->_flag = 1;
 		}
 
+		std::string	get_firstname(void) const{
+			return (_first_name);
+		}
+
+		std::string get_lastname(void) const{
+			return (_last_name);
+		}
+
+		std::string	get_nickname(void) const{
+			return (_nickname);
+		}
+
 		int		get_flag(void) const{
 			return (this->_flag);
 		}
@@ -41,3 +53,7 @@ class Contact {
 };
 
 #endif
+
+/*
+index,first name,last name and nickname.
+*/

@@ -9,10 +9,10 @@ Contact::~Contact(){
 }
 
 void	Contact::debugg(void) const {
-	std::cout << "first name : " << this->_first_name << std::endl;
-	std::cout << "last name : " << this->_last_name << std::endl;
-	std::cout << "nickname : " << this->_nickname << std::endl;
-	std::cout << "phone number : " << this->_phone_number << std::endl;
+	std::cout << "first name 	 : " << this->_first_name << std::endl;
+	std::cout << "last name 	 : " << this->_last_name << std::endl;
+	std::cout << "nickname 		 : " << this->_nickname << std::endl;
+	std::cout << "phone number   : " << this->_phone_number << std::endl;
 	std::cout << "darkest secret : " << this->_darkest_secret << std::endl;
 
 }

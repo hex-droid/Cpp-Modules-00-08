@@ -3,6 +3,7 @@
 
 # include <string>
 # include <iostream>
+# include <iomanip>
 
 class Contact {
 	private:
@@ -53,7 +54,3 @@ class Contact {
 };
 
 #endif
-
-/*
-index,first name,last name and nickname.
-*/

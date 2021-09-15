@@ -26,7 +26,3 @@ int		main()
 	return (EXIT_SUCCESS);
 }
 
-/*
-first name, last name, nickname,
-phone number,darkest secret.
-*/

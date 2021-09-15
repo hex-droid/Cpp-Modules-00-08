@@ -2,12 +2,10 @@
 
 PhoneBook::PhoneBook(void) : _index(0)
 {
-	std::cout << "PhoneBook Constructor Called" << std::endl;
 }
 
 PhoneBook::~PhoneBook(void)
 {
-	std::cout << "PhoneBook Destructor Called" << std::endl;
 }
 
 void	PhoneBook::add_contact(std::string *value)
@@ -33,31 +31,36 @@ void	PhoneBook::debugg(int index) const
 
 void	PhoneBook::ext_debugg(void) const
 {
-//	int	index;
+	std::string	index;
 
-	std::cout << "index     |" << "first name|" << "last name |" << "nickname  " << std::endl;
+	ext_formatter("index");ext_formatter("first name");
+	ext_formatter("last name");ext_formatter("nickname");std::cout << std::endl;
 	for (int i = 0; (_contact[i].get_flag() == 1); i++)
 	{
-		std::cout << i << _contact[i].get_firstname() << _contact[i].get_lastname() << _contact[i].get_nickname() << std::endl;
+		std::cout << std::setw(10) << i << "|";
+		ext_formatter(_contact[i].get_firstname());ext_formatter(_contact[i].get_lastname());ext_formatter(_contact[i].get_nickname());
+		std::cout << std::endl;
 	}
-//	std::cout << std::endl << "Enter an index : ";
-//	std::cin >> index;
-//	if (_contact[index].get_flag() == 1)
-//		this->debugg(index);
+	std::cout << std::endl << "Enter an index : " << std::endl;
+	getline (std::cin, index);
+	//int i = std::atoi (index); std::stoi(std::string)
+	std::cout << index << std::endl;
+	std::cout << "valid_index : " << valid_index(index) << std::endl;
+/* 	if (valid_index(index) == true)
+	{
+		if (_contact[index].get_flag() == 1)
+			this->debugg(index);
+	}
+	else
+	{
+		print_err("Invalid index: [0, 7]");
+		ext_debugg();
+	} */
 }
 
 void	PhoneBook::op_search(void)
 {
-	std::cout << "SEARCH!" << std::endl;
-	
 	this->ext_debugg();
-	std::cout << "_index : " << _index << std::endl;
-}
-
-void	PhoneBook::print_err(void)
-{
-	std::cout << "PhoneBook is Full" << std::endl;
-	return;
 }
 
 void	PhoneBook::print_usage(void)
@@ -70,7 +73,6 @@ void	PhoneBook::print_usage(void)
 
 void	PhoneBook::op_add(void)
 {
-	std::cout << "ADD" << std::endl;
 	std::string		key[5];
 	std::string		value[5];
 
@@ -84,16 +86,11 @@ void	PhoneBook::op_add(void)
 	{
 		for (int i = 0; i < 5; i++)
 		{
-			std::cout << "Enter " << key[i] << " : ";
-			std::cin >> value[i];
+			std::cout << "Enter " << std::left << std::setw(15) << key[i] << ": " << std::endl;
+			getline(std::cin, value[i]);
 		}
 		this->add_contact(value);
 	}
 	else
-		print_err();
+		print_err("PhoneBook is full");
 }
-
-/*
-first name, last name, nickname,
-phone number,darkest secret.
-*/

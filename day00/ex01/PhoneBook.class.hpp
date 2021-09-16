@@ -50,10 +50,8 @@ class PhoneBook{
 		void	op_add(void);
 		void	op_search(void);
 		void	print_usage(void);
-
 };
 
-void	phonebook(void);
 
 #endif
 

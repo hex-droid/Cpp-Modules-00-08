@@ -1,6 +1,6 @@
 #include "PhoneBook.class.hpp"
 
-void	phonebook(void)
+int		main()
 {
 	PhoneBook phonebook;
 	std::string	line;
@@ -18,10 +18,5 @@ void	phonebook(void)
 		else if (!line.length())
 			break;
 	}
-}
-
-int		main()
-{
-	phonebook();
 	return (EXIT_SUCCESS);
 }

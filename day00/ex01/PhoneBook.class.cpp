@@ -2,7 +2,7 @@
 
 PhoneBook::PhoneBook(void) : _index(0)
 {
-}
+}0
 
 PhoneBook::~PhoneBook(void)
 {
@@ -48,9 +48,9 @@ void	PhoneBook::_ext_debugg(void) const
 	if (!_valid_buffer(buffer))
 	{	
 		_print_err("Invalid index");
-		_ext_debugg();
+		return;
 	}
-	index = std::stoi(buffer);
+	index = std::atoi(buffer.c_str());
 	if (_valid_index(index))
 	{
 		if (_contact[index].get_flag() == 1)
@@ -59,7 +59,7 @@ void	PhoneBook::_ext_debugg(void) const
 	else
 	{
 		_print_err("Invalid index");
-		_ext_debugg();
+		return;
 	}
 }
 

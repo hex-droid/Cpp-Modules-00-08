@@ -16,10 +16,9 @@ class Weapon{
 			std::cout << "Deconstructor Called" << std::endl;
 		}
 		void				setType(std::string type){
-			std::string	const &ref = this->getType();
-			ref = type;
+			_type = type;
 		}
-		std::string	const	&getType(void){
+		std::string		&getType(void){
 			return _type;
 		}
 	private:

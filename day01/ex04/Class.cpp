@@ -4,6 +4,12 @@ void	Class::parseLine(void)
 {
 	std::ifstream	ifs(_filename.c_str());
 	std::string		buffer;
+
+	if (ifs.fail() == true)
+	{	
+		_flag = 0;
+		return;
+	}
 	while (std::getline(ifs, buffer))
 	{
 		line.append(buffer);
@@ -40,9 +46,11 @@ void	Class::ofsWrite(void)
 	ofs.close();
 }
 
-Class::Class(char **av) : _filename(av[1]), _s1(av[2]), _s2(av[3])
+Class::Class(char **av) : _filename(av[1]), _s1(av[2]), _s2(av[3]), _flag(1)
 {
 	parseLine();
+	if (!_flag)
+		return;
 	searchReplace();
 	ofsWrite();
 }

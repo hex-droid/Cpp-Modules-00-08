@@ -13,7 +13,7 @@ enum	Complains{
 
 class Karen{
 	public:
-		Karen(void){}
+		Karen(char **av) : _log_lvl(av[1]){}
 		~Karen(void){}
 
 		void	complain(std::string level){
@@ -46,6 +46,7 @@ class Karen{
 		}
 		
 	private:
+		std::string	_log_lvl;
 		void	debug(void){
 			std::cout << "debug" << std::endl;
 		}

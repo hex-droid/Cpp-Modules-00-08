@@ -32,9 +32,19 @@ void	Class::searchReplace(void)
 		}
 	}
 }
+
 void	Class::ofsWrite(void)
 {
 	std::ofstream ofs(_filename.c_str());
 	ofs << line;
 	ofs.close();
 }
+
+Class::Class(char **av) : _filename(av[1]), _s1(av[2]), _s2(av[3])
+{
+	parseLine();
+	searchReplace();
+	ofsWrite();
+}
+
+Class::~Class(void){}

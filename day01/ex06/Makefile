@@ -4,7 +4,7 @@ SRCS =	main.cpp\
 		Karen.cpp\
 
 all:
-	clang++ $(FLAGS) $(SRCS) -o karenFilter
+	clang++ $(FLAGS) $(SRCS) -o karen
 
 clean:
 	rm karen

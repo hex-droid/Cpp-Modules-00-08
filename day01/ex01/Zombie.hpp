@@ -7,23 +7,12 @@
 
 class Zombie{
 	public:
-		Zombie(std::string name) : _name(name){
-			std::cout << "Zombie " << _name << " is coming to get you" << std::endl;
-		}
-		Zombie(void){
-			std::cout << "Unknown Zombie is coming to get you" << std::endl;
-		}
-		~Zombie(void){
-			std::cout << "Zombie " << _name << " died" << std::endl;
-		}
-
-		void	annouce(void){
-			std::cout << "<" << _name << ">" << " BraaaaiiiiinzzzzzzZZZ" << std::endl;
-		}
-
-		void	set_name(std::string name){
-			_name = name;
-		}
+		Zombie(std::string name);
+		Zombie(void);
+		~Zombie(void);
+		void	annouce(void);
+		void	set_name(std::string name);
+	
 	private:
 		std::string	_name;
 };

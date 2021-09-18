@@ -1,7 +1,7 @@
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all:
-	clang++ main.cpp HumanA.cpp Weapon.cpp $(FLAGS)
+	clang++ main.cpp Weapon.cpp HumanA.cpp HumanB.cpp $(FLAGS)
 
 clean:
 	rm a.out

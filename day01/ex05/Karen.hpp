@@ -13,51 +13,16 @@ enum	Complains{
 
 class Karen{
 	public:
-		Karen(void){}
-		~Karen(void){}
+		Karen(void);
+		~Karen(void);
 
-		void	complain(std::string level){
-			switch (getI(level))
-			{
-				case DEBUG:
-					debug();
-					break;
-				case INFO:
-					info();
-					break;
-				case WARNING:
-					warning();
-					break;
-				case ERROR:
-					error();
-					break;
-				default:
-					break;
-			}
-		}
-		int		getI(std::string level){
-			int i;
-			std::string key[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-
-			for(i = 0; i < 4; i++)
-				if (!level.compare(key[i].c_str()))
-					break;
-			return (i);
-		}
-		
+		int		getI(std::string level);
+		void	complain(std::string level);
 	private:
-		void	debug(void){
-			std::cout << "debug" << std::endl;
-		}
-		void	info(void){
-			std::cout << "info" << std::endl;
-		}
-		void	warning(void){
-			std::cout << "warning" << std::endl;
-		}
-		void	error(void){
-			std::cout << "error" << std::endl;
-		}
+		void	debug(void);
+		void	info(void);
+		void	warning(void);
+		void	error(void);
 };
 
 #endif

@@ -4,10 +4,8 @@
 int		main()
 {
 	{
-		//Weapon	club = Weapon("crude spiked club");
 		Weapon	club("crude spiked club");
 
-		// club reference
 		HumanA bob("Bob", club);
 		bob.attack();
 		club.setType("some other type of club");

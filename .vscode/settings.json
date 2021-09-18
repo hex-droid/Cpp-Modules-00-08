@@ -71,7 +71,8 @@
 		"locale": "cpp",
 		"mutex": "cpp",
 		"optional": "cpp",
-		"ratio": "cpp"
+		"ratio": "cpp",
+		"fstream": "cpp"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }

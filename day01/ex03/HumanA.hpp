@@ -9,7 +9,7 @@ class HumanA{
 
 		}
 		~HumanA(void){
-			std::cout << "Deconstructor Called" << std::endl;
+			std::cout << "Destructre Called" << std::endl;
 		}
 		void	attack(void){
 			std::cout << _name << " attacks with his " << _weapon.getType() << std::endl;

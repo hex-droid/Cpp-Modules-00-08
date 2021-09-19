@@ -6,24 +6,17 @@
 
 class	Fixed{
 	public:
-		// Default Constructor
-		Fixed(void);
-		// Constructor
-		Fixed(int value);
-		// Destructor
-		~Fixed(void);
-		// Copy Constructor
-		Fixed(Fixed const &rhs);
-		// Operator= overload
-		Fixed	&operator=(Fixed const &rhs);
-		// Operator+ overload
-		Fixed	operator+(Fixed const &rhs) const;
+		Fixed(void);	//Default Constructor
+		Fixed(Fixed const &rhs);	//Copy Contructor
+		~Fixed(void);	//	Destructor
+		Fixed	&operator=(Fixed const &rhs); // Operator= Overload
 
-		int		getValue(void) const;
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
+
 	private:
 		int					_value;
+		static int const	_bits = 8;
 
 };
 

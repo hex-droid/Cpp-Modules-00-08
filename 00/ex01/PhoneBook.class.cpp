@@ -2,7 +2,7 @@
 
 PhoneBook::PhoneBook(void) : _index(0)
 {
-}0
+}
 
 PhoneBook::~PhoneBook(void)
 {

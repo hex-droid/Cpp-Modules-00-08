@@ -28,8 +28,8 @@ Fixed	&Fixed::operator=(Fixed const &rhs)
 	std::cout << "Assignation operator Called" << std::endl;
 	setRawBits(rhs.getRawBits());
 
-	_I_flag = rhs.getIflag();
-	(_I_flag == 1) ? _F_flag = 0 : _F_flag = 1;
+	_I_flag = rhs._I_flag;
+	_F_flag = rhs._F_flag;
 	return (*this);
 }
 

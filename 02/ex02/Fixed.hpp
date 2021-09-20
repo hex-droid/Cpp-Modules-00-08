@@ -29,28 +29,8 @@ class	Fixed{
 		bool	operator==(Fixed const &rhs) const;
 		bool	operator!=(Fixed const &rhs) const;
 
-		static Fixed const	&max(Fixed const &a, Fixed const &b){
-			switch ((int)(a > b))
-			{
-				case 0:
-					return b;
-				case 1:
-					return a;
-			}
-			std::cout << "a & b are equal." << std::endl;
-			return (a);
-		}
-		static Fixed const	&min(Fixed const &a, Fixed const &b){
-			switch ((int)(a > b))
-			{
-				case 0:
-					return a;
-				case 1:
-					return b;
-			}
-			std::cout << "a & b are equal." << std::endl;
-			return (a);
-		}
+		static Fixed const	&max(Fixed const &a, Fixed const &b);
+		static Fixed const	&min(Fixed const &a, Fixed const &b);
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);

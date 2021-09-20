@@ -212,3 +212,29 @@ Fixed		&Fixed::operator++()
 	++_value;
 	return *this;
 }
+
+Fixed	const	&Fixed::max(Fixed const &a, Fixed const &b)
+{
+	switch ((int)(a > b))
+	{
+		case 0:
+			return b;
+		case 1:
+			return a;
+	}
+	std::cout << "a & b are equal." << std::endl;
+	return (a);
+}
+
+Fixed const	&Fixed::min(Fixed const &a, Fixed const &b)
+{
+	switch ((int)(a > b))
+	{
+		case 0:
+			return a;
+		case 1:
+			return b;
+	}
+	std::cout << "a & b are equal." << std::endl;
+	return (a);
+}

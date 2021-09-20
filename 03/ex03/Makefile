@@ -1,4 +1,4 @@
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98
 
 SRCS =	main.cpp\
 		DiamondTrap.cpp\

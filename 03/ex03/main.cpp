@@ -3,7 +3,9 @@
 int		main()
 {
 	DiamondTrap trap1("skerakef");
-	DiamondTrap trap2("skerakef2");
+	DiamondTrap	trap2("skeeeera");
 
+	trap1.whoAmI();
+	trap1.attack("BIGman");
 	return (0);
 }

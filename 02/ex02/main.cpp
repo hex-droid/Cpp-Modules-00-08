@@ -4,7 +4,8 @@ int		main()
 {
 	Fixed		a;
 	Fixed const	b(10);
-	Fixed const c(42.42f);
+	Fixed const c(2.42f);
+	Fixed const x(3.14f);
 	Fixed const d(b);
 
 	a = Fixed(1234.4321f);
@@ -24,7 +25,7 @@ int		main()
 
 	std::cout << "a - b: " << a - b <<std::endl;
 	std::cout << "a * b: " << a * b << std::endl;
-	std::cout << "(a * c): " << (a * c) << std::endl;//
-	std::cout << "(a * c) / b: " << (a * c) / b << std::endl;
+	std::cout << "(x * c): " << (x * c) << std::endl;//
+	std::cout << "(x * c) / b: " << (x * c) / b << std::endl;
 	return (0);
 }

@@ -23,5 +23,8 @@ int		main()
 	std::cout << "b + d: " << b + d << std::endl; 
 
 	std::cout << "a - b: " << a - b <<std::endl;
+	std::cout << "a * b: " << a * b << std::endl;
+	std::cout << "(a * c): " << (a * c) << std::endl;//
+	std::cout << "(a * c) / b: " << (a * c) / b << std::endl;
 	return (0);
 }

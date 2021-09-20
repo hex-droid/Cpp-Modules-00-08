@@ -132,3 +132,53 @@ Fixed			Fixed::operator-(Fixed const &rhs) const
 	}
 	return (Fixed(-420));
 }
+
+Fixed			Fixed::operator*(Fixed const &rhs) const
+{
+	switch (this->getIflag())
+	{
+		case 0:
+			switch(rhs.getIflag())
+			{
+				case 0:
+					return (Fixed(this->toInt() * rhs.toInt()));
+				case 1:
+					return (Fixed(this->toInt() * rhs.toFloat()));
+			}
+		case 1:
+			switch(rhs.getIflag())
+			{
+				case 0:
+					return (Fixed(this->toFloat() * rhs.toInt()));
+				case 1:
+					return (Fixed(this->toFloat() * rhs.toFloat()));
+			}
+
+	}
+	return (Fixed(-420));
+}
+
+Fixed			Fixed::operator/(Fixed const &rhs) const
+{
+	switch (this->getIflag())
+	{
+		case 0:
+			switch(rhs.getIflag())
+			{
+				case 0:
+					return (Fixed(this->toInt() / rhs.toInt()));
+				case 1:
+					return (Fixed(this->toInt() / rhs.toFloat()));
+			}
+		case 1:
+			switch(rhs.getIflag())
+			{
+				case 0:
+					return (Fixed(this->toFloat() / rhs.toInt()));
+				case 1:
+					return (Fixed(this->toFloat() / rhs.toFloat()));
+			}
+
+	}
+	return (Fixed(-420));
+}

@@ -7,17 +7,20 @@
 
 class	Fixed{
 	public:
-		Fixed(void);							//Default Constructor
-		Fixed(int const	nb);					//Parametric Constructor
-		Fixed(float const nb);					//Parametric Constructor
-		Fixed(Fixed const &rhs);				//Copy Contructor
-		~Fixed(void);							//Destructor
-		
-		Fixed	&operator=(Fixed const &rhs);	//Operator= Overload
+		Fixed(void);
+		Fixed(int const	nb);					
+		Fixed(float const nb);
+		Fixed(Fixed const &rhs);				
+		~Fixed(void);
+		Fixed	&operator=(Fixed const &rhs);	
+	
 		Fixed	operator+(Fixed const &rhs) const;
 		Fixed	operator-(Fixed const &rhs) const;
 		Fixed	operator*(Fixed const &rhs) const;
 		Fixed	operator/(Fixed const &rhs) const;
+
+		Fixed	operator++(int);
+		Fixed	&operator++();
 
 		bool	operator>(Fixed const &rhs) const;
 		bool	operator<(Fixed const &rhs) const;
@@ -26,8 +29,28 @@ class	Fixed{
 		bool	operator==(Fixed const &rhs) const;
 		bool	operator!=(Fixed const &rhs) const;
 
-		static Fixed	&max(Fixed const &a, Fixed const &b);
-		static Fixed	&min(Fixed const &a, Fixed const &b);
+		static Fixed const	&max(Fixed const &a, Fixed const &b){
+			switch ((int)(a > b))
+			{
+				case 0:
+					return b;
+				case 1:
+					return a;
+			}
+			std::cout << "a & b are equal." << std::endl;
+			return (a);
+		}
+		static Fixed const	&min(Fixed const &a, Fixed const &b){
+			switch ((int)(a > b))
+			{
+				case 0:
+					return a;
+				case 1:
+					return b;
+			}
+			std::cout << "a & b are equal." << std::endl;
+			return (a);
+		}
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);

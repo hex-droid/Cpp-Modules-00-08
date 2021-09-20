@@ -2,36 +2,24 @@
 
 Fixed::Fixed(void) : _value(0) 
 {
-	//std::cout << "Default Constructor Called" << std::endl;
 }
 
-Fixed::Fixed(int const nb) : _value(nb), _F_flag(1)
+Fixed::Fixed(int const nb) : _value(nb), _F_flag(1), _I_flag(0)
 {
-//	std::cout << "Int" << std::endl;
-//	std::cout << "(1 << _bits): " << (1 << _bits) << std::endl;
-//	std::cout << "round(nb * (1 << _bits))" << round (nb * (1 << _bits)) << std::endl;
 	_I_flag = 0;
-	//std::cout << "Int Constructor Called" << std::endl;
 }
 
-Fixed::Fixed(float const nb) : _I_flag(1)
+Fixed::Fixed(float const nb) : _F_flag(0), _I_flag(1)
 {
-	_F_flag = 0;
-//	std::cout << "Float: " << nb << std::endl;
-//	std::cout << "(1 << _bits): " << (1 << _bits) << std::endl;
-//	std::cout << "round(nb * (1 << _bits))" << round (nb * (1 << _bits)) << std::endl;
 	_value = round(nb * (1 << _bits));
-	//std::cout << "Float Constructor Called" << std::endl;
 }
 
 Fixed::~Fixed(void)
 {
-	//std::cout << "Destructor Called" << std::endl;
 }
 
 Fixed	&Fixed::operator=(Fixed const &rhs)
 {
-	//std::cout << "Assignation operator Called" << std::endl;
 	setRawBits(rhs.getRawBits());
 
 	_I_flag = rhs._I_flag;
@@ -41,7 +29,6 @@ Fixed	&Fixed::operator=(Fixed const &rhs)
 
 Fixed::Fixed(Fixed const &rhs)
 {
-	//std::cout << "Copy Constructor Called" << std::endl;
 	if (this != &rhs){
 		*this = rhs;
 	}
@@ -181,4 +168,47 @@ Fixed			Fixed::operator/(Fixed const &rhs) const
 
 	}
 	return (Fixed(-420));
+}
+
+bool		Fixed::operator<(Fixed const &rhs) const
+{
+	return (this->getRawBits() < rhs.getRawBits());
+}
+
+bool		Fixed::operator>(Fixed const &rhs) const
+{
+	return this->getRawBits() > rhs.getRawBits();
+}
+
+bool		Fixed::operator>=(Fixed const &rhs) const
+{
+	return this->getRawBits() >= rhs.getRawBits();
+}
+
+bool		Fixed::operator<=(Fixed const &rhs) const
+{
+	return this->getRawBits() <= rhs.getRawBits();
+}
+
+bool		Fixed::operator==(Fixed const &rhs) const
+{
+	return this->getRawBits() == rhs.getRawBits();
+}
+
+bool		Fixed::operator!=(Fixed const &rhs) const
+{
+	return this->getRawBits() != rhs.getRawBits();
+}
+
+Fixed		Fixed::operator++(int)
+{
+	Fixed	tmp = *this;
+	this->_value++;
+	return tmp;
+}
+
+Fixed		&Fixed::operator++()
+{
+	++_value;
+	return *this;
 }

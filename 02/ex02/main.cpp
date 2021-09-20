@@ -1,12 +1,13 @@
 #include "Fixed.hpp"
 
-int		main()
+/* int		main()
 {
 	Fixed		a;
 	Fixed const	b(10);
 	Fixed const c(2.42f);
-	Fixed const x(3.14f);
 	Fixed const d(b);
+	Fixed const e(3.14f);
+	Fixed const f(3.14f);
 
 	a = Fixed(1234.4321f);
 
@@ -25,7 +26,41 @@ int		main()
 
 	std::cout << "a - b: " << a - b <<std::endl;
 	std::cout << "a * b: " << a * b << std::endl;
-	std::cout << "(x * c): " << (x * c) << std::endl;//
-	std::cout << "(x * c) / b: " << (x * c) / b << std::endl;
+	std::cout << "(e * c): " << (e * c) << std::endl;//
+	std::cout << "(e * c) / b: " << (e * c) / b << std::endl;
+
+	std::cout << "b < a: " << (b < a) << std::endl;
+	std::cout << "b > a: " << (b > a) << std::endl;
+
+	std::cout << "e >= f: " << (e >= f) << std::endl;
+	std::cout << "c <= f: " << (c <= f) << std::endl; 
+
+	std::cout << "e == f: " << (e == f) << std::endl;
+	std::cout << "e != f: " << (e != f) << std::endl;
+
+	std::cout << std::endl << "max(a, b): " << Fixed::max(a, b) << std::endl;
+	std::cout << std::endl << "min(a, b): " << Fixed::min(a, b) << std::endl;
+	std::cout << std::endl << "min(e, f): " << Fixed::min(e, f) << std::endl;
+
+
 	return (0);
+} */
+
+int		main()
+{
+	Fixed	a;
+	Fixed const b(Fixed(5.05f) * Fixed(2));
+
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+
+	std::cout << b << std::endl;
+
+	std::cout << Fixed::max(a, b) << std::endl;
+	return 0;
 }
+
+

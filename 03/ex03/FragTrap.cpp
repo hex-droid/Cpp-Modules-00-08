@@ -9,6 +9,10 @@ FragTrap::~FragTrap(void)
 }
 FragTrap::FragTrap(std::string const &name): ClapTrap(name)
 {
+	this->_hitPoint = 100;
+	this->_energyPoint = 100;
+	this->_attackDamage = 30;
+	this->_name = name;
 	std::cout<<"FragTrap <"<<this->_name<<"> Wake up!"<<std::endl;
 }
 

@@ -10,6 +10,6 @@ all: $(SRCS)
 	clang++ $(FLAGS) $(SRCS) -o DiamondTrap
 
 clean:
-	rm DiaomondTrap
+	rm DiamondTrap
 
 re:

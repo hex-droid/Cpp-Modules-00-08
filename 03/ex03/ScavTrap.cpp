@@ -5,6 +5,10 @@ ScavTrap::ScavTrap(void){}
 ScavTrap::ScavTrap(std::string const &name) : ClapTrap(name)
 {
 	std::cout <<"ScavTrap <"<<name<<"> brought to life"<<std::endl;
+	this->_hitPoint = 100;
+	this->_energyPoint = 50;
+	this->_attackDamage = 20;
+	this->_name = name;
 }
 
 ScavTrap::~ScavTrap(void)
@@ -37,5 +41,5 @@ void		ScavTrap::guardGate(void)
 
 void		ScavTrap::attack(std::string const &target)
 {
-	std::cout<<"ClapTrap <"<<_name<<"> attack "<<target<<", causing <"<<_attackDamage<<"> points of damage!"<<std::endl;;
+	std::cout<<"ScavTrap <"<<this->_name<<"> attack "<<target<<", causing <"<<_attackDamage<<"> points of damage!"<<std::endl;;
 }

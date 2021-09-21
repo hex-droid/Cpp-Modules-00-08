@@ -2,8 +2,13 @@
 
 DiamondTrap::DiamondTrap(void){}
 
-DiamondTrap::DiamondTrap(std::string const &name): ClapTrap(name), FragTrap(name), ScavTrap(name), _name(name)
+DiamondTrap::DiamondTrap(std::string const &name): FragTrap(name), ScavTrap(name)
 {
+	this->_name = name;
+	ClapTrap::_name = (name + "_clap_name");
+	this->_hitPoint = FragTrap::_hitPoint;
+	this->_energyPoint = ScavTrap::_energyPoint;
+	this->_attackDamage = FragTrap::_attackDamage;
 	std::cout <<"<"<<_name<<"> Born to life!"<<std::endl;
 }
 
@@ -31,3 +36,8 @@ void			DiamondTrap::whoAmI(void)
 	std::cout << std::setw(14) <<"ClapTrap Name"<<": "<< ClapTrap:: _name << std::endl;
 
 }
+
+/* void	attack(std::string const &name)
+{
+	ScavTrap::attack(name);
+} */

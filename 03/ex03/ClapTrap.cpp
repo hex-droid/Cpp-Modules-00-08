@@ -2,10 +2,10 @@
 
 ClapTrap::ClapTrap(void){}
 
-ClapTrap::ClapTrap(std::string const &name) :	_name(name + "_clap_name"),
-												_hitPoint(100),
-												_energyPoint(50),
-												_attackDamage(30)
+ClapTrap::ClapTrap(std::string const &name) :	_name(name),
+												_hitPoint(10),
+												_energyPoint(10),
+												_attackDamage(0)
 {
 	std::cout << "ClapTrap <"<<_name<<"> is brought to life" << std::endl;
 }

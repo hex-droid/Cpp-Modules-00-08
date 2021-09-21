@@ -13,7 +13,8 @@ int		main()
 
 	dog->setBrain(brain);
 
-	dog->sayIdeas();	
+	dog->sayIdeas();
+	cat->sayIdeas();
 
 
 	delete dog;

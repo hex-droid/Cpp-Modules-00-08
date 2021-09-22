@@ -40,27 +40,6 @@ int		main()
 
 /* int		main()
 {
-	int	N=10;
-	std::cout<<"------------------0"<<std::endl;
-	AAnimal	*dog = new AAnimal[N];
-	std::cout<<"------------------1"<<std::endl;
-//	dog = new Dog();
-	for(int i=0;i<N;i++)
-		(&dog[i]) = new Dog();
-	std::cout<<"------------------2"<<std::endl;
-
-	std::cout<<"------------------3"<<std::endl;
-//	std::cout<<"---";(dog)->getType();
-	std::cout<<"------------------4"<<std::endl;
-//	dog->makeSound();
-	std::cout<<"------------------5"<<std::endl;
-	delete [] dog;
-	std::cout<<"------------------6"<<std::endl;
-	return 0;
-} */
-
-/* int		main()
-{
 	std::cout<<"------------------1"<<std::endl;
 	AAnimal *dog = new Dog();
 	std::cout<<"------------------2"<<std::endl;

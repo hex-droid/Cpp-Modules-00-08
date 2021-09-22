@@ -1,3 +1,5 @@
+NAME = a.out
+
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS =	AAnimal.cpp\
@@ -7,7 +9,9 @@ SRCS =	AAnimal.cpp\
 		Cat.cpp\
 		main.cpp\
 		
-all:
+all: $(NAME)
+
+$(NAME) : $(SRCS)
 	clang++ $(FLAGS) $(SRCS)
 
 clean:

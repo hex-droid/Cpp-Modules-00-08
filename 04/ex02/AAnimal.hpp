@@ -13,7 +13,7 @@ class	AAnimal{
 		virtual ~AAnimal(void);
 		virtual AAnimal	&operator=(AAnimal const &rhs);
 
-		virtual	void	makeSound(void);
+		virtual	void	makeSound(void) = 0;
 		virtual void	setBrain(Brain *ref);
 		virtual void	sayIdeas(void);
 		std::string		getType(void);

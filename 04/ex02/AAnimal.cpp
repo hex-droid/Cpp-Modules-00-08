@@ -23,11 +23,6 @@ AAnimal::AAnimal(AAnimal const &rhs)
 	*this = rhs;
 }
 
-void	AAnimal::makeSound(void)
-{
-	std::cout <<"AAnimal sound" << std::endl;
-}
-
 std::string	AAnimal::getType(void)
 {
 	return _type;

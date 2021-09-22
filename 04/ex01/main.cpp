@@ -38,7 +38,7 @@
 	return (0);
 } */
 
-/* int		main()
+int		main()
 {
 	int N=10;
 	AAnimal *zoo[N];
@@ -57,7 +57,7 @@
 	for (int i =0; i < N; i++)
 		delete zoo[i];
 	return 0;
-} */
+}
 
 /* int		main()
 {

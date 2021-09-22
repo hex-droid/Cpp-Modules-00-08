@@ -1,3 +1,5 @@
+NAME = a.out
+
 FLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 SRCS =	AAnimal.cpp\
@@ -6,7 +8,9 @@ SRCS =	AAnimal.cpp\
 		Brain.cpp\
 		main.cpp\
 		
-all:
+all:$(NAME)
+
+$(NAME) : $(SRCS)
 	clang++ $(FLAGS) $(SRCS)
 
 clean:

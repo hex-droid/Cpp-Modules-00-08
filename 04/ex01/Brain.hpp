@@ -7,13 +7,13 @@ class	Brain{
 	public:
 		Brain(void);
 		Brain(std::string const &placeholder);
-		~Brain(void);
-		Brain &operator=(Brain const &rhs);
+		virtual ~Brain(void);
+		virtual Brain &operator=(Brain const &rhs);
 		Brain(Brain const &rhs);
 
-		std::string		*ideas;	
 		void	debugg(void);
 	private:
+		std::string		*_ideas;	
 		void	newFill(std::string const &placeholder);	
 };
 

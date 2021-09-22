@@ -14,7 +14,7 @@ Brain::Brain(void)
 
 Brain::~Brain(void)
 {
-	delete [] ideas;
+	delete [] _ideas;
 	std::cout << "Brain Destructor" << std::endl;
 }
 
@@ -22,7 +22,8 @@ Brain &Brain::operator=(Brain const &rhs)
 {
 	if (this != &rhs)
 	{
-		this->ideas = rhs.ideas;
+		for(int i=0;i<100;i++)
+			_ideas[i] = rhs._ideas[i];
 	}
 	return *this;
 }
@@ -36,16 +37,16 @@ void	Brain::debugg(void)
 {
 	for(int i=0;i<99;i++)
 	{
-		std::cout<<"["<<ideas[i]<<"], ";
+		std::cout<<"["<<_ideas[i]<<"], ";
 	}
-	std::cout<<"["<<ideas[99]<<"]"<<std::endl;
+	std::cout<<"["<<_ideas[99]<<"]"<<std::endl;
 }
 
 void	Brain::newFill(std::string const &placehoder)
 {
-	ideas = new std::string[100];
+	_ideas = new std::string[100];
 	for (int i=0;i<100; i++)
 	{	
-		ideas[i].append(placehoder);
+		_ideas[i].append(placehoder);
 	}
 }

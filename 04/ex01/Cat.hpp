@@ -9,18 +9,16 @@ class	Cat : public AAnimal{
 	public:
 		Cat(void);
 		virtual ~Cat(void);
-		Cat &operator=(Cat const &rhs);
+		virtual Cat &operator=(Cat const &rhs);
 		Cat(Cat const &rhs);
 
 		virtual void	makeSound(void);
 		virtual void	setBrain(Brain *ref);
-		virtual void	sayIdeas(void){
-			std::cout << getType() << " is saying something" << std::endl;
-			brainz->debugg();
-		}
+		virtual void	sayIdeas(void);
+		void			*getBrainAddress(void);
 		
 	private:
-		Brain	*brainz;
+		Brain	*_brainz;
 };
 
 #endif

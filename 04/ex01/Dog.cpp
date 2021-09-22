@@ -1,24 +1,29 @@
 #include "Dog.hpp"
 
-Dog::Dog(void) : AAnimal()
+Dog::Dog(void) : AAnimal(), _brainz(NULL)
 {
-	this->_type = "Dog";
-	brainz = new Brain();
+	_type = ("Dog");
 	std::cout << "Dog Constructor" << std::endl;
 }
 
 Dog::~Dog(void)
 {
-	delete brainz;
+	if (_brainz)
+		delete _brainz;
 	std::cout << "Dog Destructor" << std::endl;
 }
 
 Dog	&Dog::operator=(Dog const &rhs)
 {
+	std::cout << "Dog operator= overload" << std::endl;
 	if (this != &rhs)
 	{
 		this->_type = rhs._type;
-		setBrain(rhs.brainz);
+		_brainz = new Brain();
+		if (rhs._brainz)
+		{
+			*_brainz = *rhs._brainz;
+		}
 	}
 	return *this;
 }
@@ -35,5 +40,18 @@ void	Dog::makeSound(void)
 
 void	Dog::setBrain(Brain *ref)
 {
-	brainz = ref;
+	std::cout << "Setting up a braiin" << std::endl;
+	_brainz = ref;
+}
+
+void	Dog::sayIdeas(void)
+{
+	std::cout << getType() << " is saying something" << std::endl;
+	if (_brainz)
+		_brainz->debugg();
+}
+
+void	*Dog::getBrainAddress(void)
+{
+	return (void *)_brainz;
 }

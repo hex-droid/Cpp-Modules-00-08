@@ -1,6 +1,6 @@
 #include "AAnimal.hpp"
 
-AAnimal::AAnimal(void)
+AAnimal::AAnimal(void): _type("Animal")
 {
 	std::cout << "AAnimal Constructor" << std::endl;
 }
@@ -25,10 +25,23 @@ AAnimal::AAnimal(AAnimal const &rhs)
 
 void	AAnimal::makeSound(void)
 {
-	std::cout << "Animal sound" << std::endl;
+	std::cout <<"AAnimal sound" << std::endl;
 }
 
 std::string	AAnimal::getType(void)
 {
 	return _type;
+}
+
+void		AAnimal::sayIdeas(void)
+{
+	std::cout << 
+	"AAnimal got nothing to say"
+	<< std::endl;
+}
+
+void		AAnimal::setBrain(Brain *ref)
+{
+	(void)ref;
+	std::cout << "AAnimal got no brain" << std::endl;
 }

@@ -1,6 +1,8 @@
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS =	AAnimal.cpp\
+		WrongAAnimal.cpp\
+		WrongCat.cpp\
 		Dog.cpp\
 		Cat.cpp\
 		main.cpp\

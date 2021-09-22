@@ -10,12 +10,12 @@ class	AAnimal{
 	public:
 		AAnimal(void);
 		virtual ~AAnimal(void);
-		AAnimal	&operator=(AAnimal const &rhs);
+		virtual AAnimal	&operator=(AAnimal const &rhs);
 		AAnimal(AAnimal const &rhs);
 
 		virtual	void	makeSound(void);
-		virtual void	setBrain(Brain *ref) = 0;
-		virtual void	sayIdeas(void) = 0;
+		virtual void	setBrain(Brain *ref);
+		virtual void	sayIdeas(void);
 		std::string		getType(void);
 
 };

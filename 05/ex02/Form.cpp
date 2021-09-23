@@ -63,7 +63,7 @@ bool			Form::getSign(void) const
 
 std::ostream	&operator<<(std::ostream &o, Form const &rhs)
 {
-	o << "Form  	<"<<rhs.getName()<<">" << std::endl;
+	o << std::endl<<"Form  	<"<<rhs.getName()<<">" << std::endl;
 	o << "SignGrade: <"<<rhs.getsignGrade()<<">"<<std::endl;
 	o<<  "ExecGrade: <"<<rhs.getexecGrade()<<">"<< std::endl;
 	o<<  "Signed   : <"<<rhs.getSign()<<">"<<std::endl<<std::endl;

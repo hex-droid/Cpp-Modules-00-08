@@ -9,11 +9,9 @@ class Bureaucrat;
 
 class	Form{
 	public:
-		Form(std::string const &name, int const sign_grade, int const exec_grade, std::string const &target);
 		Form(void);
+		Form(std::string const &name, int const sign_grade, int const exec_grade, std::string const &target);
 		virtual ~Form(void);
-		Form &operator=(Form const &rhs);
-		Form(Form const &rhs);
 
 		class GradeTooLowException : public std::exception{
 			public:
@@ -55,6 +53,8 @@ class	Form{
 		int			const	_sign_grade;
 		int			const	_exec_grade;
 		bool				_signed;
+		Form &operator=(Form const &rhs);
+		Form(Form const &rhs);
 };
 
 std::ostream	&operator<<(std::ostream &o, Form const &rhs);

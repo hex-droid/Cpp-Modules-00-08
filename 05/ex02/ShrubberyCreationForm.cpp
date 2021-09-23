@@ -1,7 +1,7 @@
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target):
-Form("ShrubberyForm", 145, 137, target)
+Form("ShrubberyCreation", 145, 137, target)
 {
 	std::cout << "<Shrubbery>Parametric Constructor" << std::endl;
 }
@@ -38,10 +38,11 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		if (executor.getGrade() > this->getexecGrade())
 			throw GradeTooLowException();
 		this->xExec();
-		executor.executeForm(*this);
+		executor.executeForm(*this, 1);
 	}
 	catch(GradeTooLowException &e){
 		std::cout << "ShrubberyCreationForm::execute: "<<e.what()<<std::endl;
+		executor.executeForm(*this, 0);
 	}
 	catch(NotSigned &e){
 		std::cout << "ShrubberyCreationForm::execute: "<<e.what()<<std::endl;

@@ -99,7 +99,15 @@ void				Bureaucrat::signForm(std::string const &name, int flag)
 	}
 }
 
-void				Bureaucrat::executeForm(Form const &form) const
+void				Bureaucrat::executeForm(Form const &form, int flag) const
 {
-	std::cout << "<"<<_name<<"> executes <"<<form.getName()<<">."<<std::endl;
+	switch (flag)
+	{
+		case 0:
+			std::cout << "<"<<_name<<"> doesn't have the clearance to execute this form: <"<<form.getName()<<">."<<std::endl;
+			break;
+		case 1:
+			std::cout << "<"<<_name<<"> executes <"<<form.getName()<<">."<<std::endl;
+			break;
+	}
 }

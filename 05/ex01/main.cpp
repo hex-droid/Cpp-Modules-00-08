@@ -10,6 +10,8 @@ int		main()
 	std::cout << form;
 	form.beSigned(birokrat);
 	std::cout << form;
+	form.beSigned(birokrat);
+	std::cout << form;
 //	std::cout << fail;
 	return 0;
 }

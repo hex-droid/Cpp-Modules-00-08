@@ -1,7 +1,7 @@
 #include "Form.hpp"
 
-Form::Form(std::string const &name, int const sign_grade, int const exec_grade):
-_name(name), _sign_grade(sign_grade), _exec_grade(exec_grade), _signed(false)
+Form::Form(std::string const &name, int const sign_grade, int const exec_grade, std::string const &target):
+_target(target), _name(name), _sign_grade(sign_grade), _exec_grade(exec_grade), _signed(false)
 {
 	try{
 		if (sign_grade > 150 || sign_grade < 1)
@@ -14,7 +14,7 @@ _name(name), _sign_grade(sign_grade), _exec_grade(exec_grade), _signed(false)
 		this->~Form();
 		exit(1);
 	}
-	std::cout << "Parametric Constructor" << std::endl;
+	std::cout << "<Form>Parametric Constructor Called" << std::endl;
 }
 
 Form::Form(void): _name(0), _sign_grade(0), _exec_grade(0), _signed(false)
@@ -24,7 +24,7 @@ Form::Form(void): _name(0), _sign_grade(0), _exec_grade(0), _signed(false)
 
 Form::~Form(void)
 {
-	std::cout << "Default Destructor" << std::endl;
+	std::cout << "<Form>Default Destructor" << std::endl;
 }
 
 Form &Form::operator=(Form const &rhs)
@@ -70,7 +70,7 @@ std::ostream	&operator<<(std::ostream &o, Form const &rhs)
 	return o;
 }
 
-void			Form::beSigned(Bureaucrat &rhs)
+void			Form::beSigned(Bureaucrat  &rhs)
 {
 	try{
 		if (this->getSign())

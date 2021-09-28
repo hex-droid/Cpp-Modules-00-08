@@ -24,34 +24,59 @@ Class::Class(Class const &rhs)
 
 Class::operator char()
 {
-	std::cout << "test" << std::endl;
-	if (_str.length() == 1 && !std::isdigit(_str[0]))
+	if (_str.length() == 1 || std::isdigit(_str[0]))
 	{
-		char c = (char)_str[0];
 		try
 		{
-			if (!std::isprint(c))
+			int c = std::stoi(_str);
+			if (!isprint((char)c))
 				throw NotPrintableException();
-			std::cout << "char: " << c << std::endl;
+			std::cout << "char: " << (char)c << std::endl;
+			return c;
 		}
 		catch (NotPrintableException &e)
 		{	
 			std::cout << e.what() << std::endl;
 		}
-		return c;
+		catch (std::out_of_range &e){
+			std::cout << "char: impossible" << std::endl; 
+		}
+	}else{
+		std::cout << "char: impossible" << std::endl; 
 	}
 	return 1;
 }
 
-char 	Class::get_str(void) const
+Class::operator int ()
 {
-	return _str[0];
+	if (_str.length() == 1 || std::isdigit(_str[0]))
+	{
+		try{
+			long c = std::stol(_str);
+			if ( c > INT_MAX || c < INT_MIN)
+				throw IntOutOfBounds();
+			std::cout << "int: " << (int)c << std::endl;
+			return c;
+		}
+		catch (IntOutOfBounds &e){
+			std::cout << e.what() << std::endl;
+		}
+
+	}else{
+		std::cout << "int: impossible" << std::endl;
+	}
+	return 1;
 }
 
-void	Scalar(Class const &hs)
+std::string 	Class::get_str(void) const
 {
-	(void)static_cast<char>(hs.get_str());
-	//(void)static_cast<int>(hs.get_str());
+	return _str;
+}
+
+void	Class::Scalar()
+{
+	(void)static_cast<char>(*this);
+	(void)static_cast<int>(*this);
 	//(void)static_cast<float>(hs.get_str());
 	//(void)static_cast<double>(hs.get_str());
 	

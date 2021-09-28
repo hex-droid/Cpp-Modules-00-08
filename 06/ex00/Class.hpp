@@ -3,6 +3,8 @@
 
 # include <string>
 # include <iostream>
+# include <cctype>
+# include <limits>
 
 class	Class{
 	public:
@@ -16,22 +18,28 @@ class	Class{
 		operator	char();
 		operator	float();
 		operator	double();
+		void		Scalar();
 
 		class NotPrintableException : public std::exception{
 			public:
 				virtual const char *what() const throw(){
-					return ("Char: Non displayable");
+					return ("char: Non displayable");
+				}
+		};
+		class IntOutOfBounds : public std::exception{
+			public:
+				virtual const char *what() const throw(){
+					return ("int: impossible");
 				}
 		};
 
-		char  get_str(void) const;
+		std::string  get_str(void) const;
 
 	private:
 		std::string const _str;
 
 };
 
-void		Scalar(Class const &hs);
 
 
 #endif

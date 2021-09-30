@@ -28,17 +28,30 @@ Class::operator char()
 	{
 		try
 		{
-			int c = std::stoi(_str);
-			if (!isprint((char)c))
-				throw NotPrintableException();
-			std::cout << "char: " << (char)c << std::endl;
-			return c;
+			if (std::isdigit(_str[0]))
+			{	
+				int c = std::stoi(_str);
+				if (!isprint((char)c))
+					throw NotPrintableException();
+				std::cout << "char: " << (char)c << std::endl;
+				return c;
+			}
+			else{
+				char c = _str[0];
+				if (!isprint((char)c))
+					throw NotPrintableException();
+				std::cout << "char: " << (char)c << std::endl;
+				return c;
+			}
 		}
 		catch (NotPrintableException &e)
 		{	
 			std::cout << e.what() << std::endl;
 		}
 		catch (std::out_of_range &e){
+			std::cout << "char: impossible" << std::endl; 
+		}
+		catch (std::invalid_argument &e){
 			std::cout << "char: impossible" << std::endl; 
 		}
 	}else{
@@ -49,19 +62,29 @@ Class::operator char()
 
 Class::operator int ()
 {
-	if (_str.length() == 1 || std::isdigit(_str[0]))
+	if (_str.length() == 1 || (_str.length() > 1 && _str[0] == '-') || std::isdigit(_str[0]))
 	{
 		try{
-			long c = std::stol(_str);
-			if ( c > INT_MAX || c < INT_MIN)
-				throw IntOutOfBounds();
-			std::cout << "int: " << (int)c << std::endl;
-			return c;
+			if (std::isdigit(_str[0]))
+			{
+				long c = std::stol(_str);
+				if ( c > INT_MAX || c < INT_MIN)
+					throw IntOutOfBounds();
+				std::cout << "int: " << (int)c << std::endl;
+				return c;
+			}
+			else
+			{
+				int c = (int)_str[0];
+				if ( c > INT_MAX || c < INT_MIN)
+					throw IntOutOfBounds();
+				std::cout << "int: " << (int)c << std::endl;
+				return c;
+			}
 		}
 		catch (IntOutOfBounds &e){
 			std::cout << e.what() << std::endl;
 		}
-
 	}else{
 		std::cout << "int: impossible" << std::endl;
 	}
@@ -77,8 +100,8 @@ void	Class::Scalar()
 {
 	(void)static_cast<char>(*this);
 	(void)static_cast<int>(*this);
-	//(void)static_cast<float>(hs.get_str());
-	//(void)static_cast<double>(hs.get_str());
+	//(void)static_cast<float>(*this);
+	//(void)static_cast<double>(*this);
 	
 }
 

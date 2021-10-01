@@ -4,7 +4,7 @@
 # include <string>
 # include <iostream>
 # include <cctype>
-# include <limits>
+# include <limits.h>
 
 class	Class{
 	public:

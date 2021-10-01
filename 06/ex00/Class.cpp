@@ -73,6 +73,14 @@ Class::operator int ()
 				std::cout << "int: " << (int)c << std::endl;
 				return c;
 			}
+			else if (_str.length() > 1 && _str[0]=='-')
+			{
+				long c = std::stol(_str);
+				if ( c > INT_MAX || c < INT_MIN)
+					throw IntOutOfBounds();
+				std::cout << "int: " << (int)c << std::endl;
+				return c;
+			}
 			else
 			{
 				int c = (int)_str[0];
@@ -85,11 +93,15 @@ Class::operator int ()
 		catch (IntOutOfBounds &e){
 			std::cout << e.what() << std::endl;
 		}
+		catch (std::invalid_argument &e){
+			std::cout << "int: impossible" << std::endl;
+		}
 	}else{
 		std::cout << "int: impossible" << std::endl;
 	}
 	return 1;
 }
+
 
 std::string 	Class::get_str(void) const
 {

@@ -46,7 +46,7 @@
 	return (0);
 } */
 
-int		main()
+/* int		main()
 {
 	Fixed	a;
 	Fixed const b(Fixed(5.05f) * Fixed(2));
@@ -62,5 +62,15 @@ int		main()
 	std::cout << Fixed::max(a, b) << std::endl;
 	return 0;
 }
+ */
 
 
+int		main()
+{
+	Fixed a(2.5f);
+	Fixed b(2.5f);
+
+	std::cout << (a / b) << std::endl;
+
+	return 0;	
+}

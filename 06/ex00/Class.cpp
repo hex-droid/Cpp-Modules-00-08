@@ -102,6 +102,89 @@ Class::operator int ()
 	return 1;
 }
 
+Class::operator float()
+{
+	if (_str.length() == 1 || (_str.length() > 1 && _str[0] == '-') || std::isdigit(_str[0]))
+	{
+		try{
+			if (std::isdigit(_str[0]))
+			{
+				float c = std::stof(_str);
+				if ( c > INT_MAX || c < INT_MIN)
+					throw IntOutOfBounds();
+				std::cout << "float: " << c << "f"<< std::endl;
+				return c;
+			}
+			else if (_str.length() > 1 && _str[0]=='-')
+			{
+				float c = std::stof(_str);
+				if ( c > INT_MAX || c < INT_MIN)
+					throw IntOutOfBounds();
+					std::cout << "float: " << c << "f"<< std::endl;
+					return c;
+			}
+			else
+			{
+				float c = (float)_str[0];
+				if ( c > INT_MAX || c < INT_MIN)
+					throw IntOutOfBounds();
+				std::cout << "float: " << c << std::endl;
+				return c;
+			}
+		}
+		catch (IntOutOfBounds &e){
+			std::cout << e.what() << std::endl;
+		}
+		catch (std::invalid_argument &e){
+			std::cout << "float: impossible" << std::endl;
+		}
+	}else{
+		std::cout << "float: impossible" << std::endl;
+	}
+	return 1;
+}
+
+Class::operator double()
+{
+	if (_str.length() == 1 || (_str.length() > 1 && _str[0] == '-') || std::isdigit(_str[0]))
+	{
+		try{
+			if (std::isdigit(_str[0]))
+			{
+				double c = std::stod(_str);
+				if ( c > INT_MAX || c < INT_MIN)
+					throw IntOutOfBounds();
+				std::cout << "double: " << c << std::endl;
+				return c;
+			}
+			else if (_str.length() > 1 && _str[0]=='-')
+			{
+				double c = std::stod(_str);
+				if ( c > INT_MAX || c < INT_MIN)
+					throw IntOutOfBounds();
+				std::cout << "double: " << c << std::endl;
+				return c;
+			}
+			else
+			{
+				double c = (double)_str[0];
+				if ( c > INT_MAX || c < INT_MIN)
+					throw IntOutOfBounds();
+				std::cout << "double: " << c << std::endl;
+				return c;
+			}
+		}
+		catch (IntOutOfBounds &e){
+			std::cout << e.what() << std::endl;
+		}
+		catch (std::invalid_argument &e){
+			std::cout << "double: impossible" << std::endl;
+		}
+	}else{
+		std::cout << "double: impossible" << std::endl;
+	}
+	return 1;
+}
 
 std::string 	Class::get_str(void) const
 {
@@ -112,8 +195,8 @@ void	Class::Scalar()
 {
 	(void)static_cast<char>(*this);
 	(void)static_cast<int>(*this);
-	//(void)static_cast<float>(*this);
-	//(void)static_cast<double>(*this);
+	(void)static_cast<float>(*this);
+	(void)static_cast<double>(*this);
 	
 }
 

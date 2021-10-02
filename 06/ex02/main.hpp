@@ -3,8 +3,6 @@
 
 # include <iostream>
 
-using namespace std;
-
 class	Base{
 	public:
 		virtual ~Base(void);
@@ -12,17 +10,17 @@ class	Base{
 
 class A: public Base{
 	public:
-		~A(void);
 };
 
 class B: public Base{
 	public:
-		~B(void);
 };
 
 class C: public Base{
 	public:
-		~C(void);
+};
+class D: public Base{
+	public:
 };
 
 Base	*generate(void);

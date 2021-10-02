@@ -4,7 +4,8 @@
 # include <string>
 # include <iostream>
 # include <cctype>
-# include <limits.h>
+# include <limits>
+# include <float.h>
 
 class	Class{
 	public:
@@ -26,14 +27,6 @@ class	Class{
 					return ("char: Non displayable");
 				}
 		};
-		class IntOutOfBounds : public std::exception{
-			public:
-				virtual const char *what() const throw(){
-					return ("int: impossible");
-				}
-		};
-
-		std::string  get_str(void) const;
 
 	private:
 		std::string const _str;

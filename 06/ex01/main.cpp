@@ -10,7 +10,6 @@ Data		*deserialize(uintptr_t s)
 {
 	Data *d;
 	d = reinterpret_cast<Data*>(s);
-	cout << "d addr: " << d << endl;
 	return d;
 }
 
@@ -19,15 +18,27 @@ int		main()
 	Data *p = new Data;
 	p->num = 16;
 	p->po = 42;
-	cout << "p addr: " << p << endl;
+	p->p = 3.14f;
+	p->x = 4.76;
+	std::cout << p->num << std::endl;
+	std::cout << p->po << std::endl;
+	std::cout << p->p << std::endl;
+	std::cout << p->x << std::endl;
+	std::cout << "-----------------------"<<std::endl;
+	std::cout << "p addr: " << p << std::endl;
+	std::cout << "-----------------------"<<std::endl;
 
-	cout << p->num << endl;
 	uintptr_t i = serialize(p);
+	std::cout << "i addr: " << i << std::endl;
 	Data *c = deserialize(i);
+	std::cout << "-----------------------"<<std::endl;
+	std::cout << "c addr: " << c << std::endl;
+	std::cout << "-----------------------"<<std::endl;
 
-	cout << c->num << endl;
-	cout << c->po << endl;
-
+	std::cout << c->num << std::endl;
+	std::cout << c->po << std::endl;
+	std::cout << c->p << std::endl;
+	std::cout << c->x << std::endl;
 	delete p;
 	return 0;
 }

@@ -4,11 +4,11 @@
 # include <iostream>
 # include <vector>
 
-using namespace std;
-
 struct Data{
 	int num;
 	int po;
+	float p;
+	double x;
 };
 
 uintptr_t		serialize(Data *ptr);

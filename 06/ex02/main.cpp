@@ -23,21 +23,40 @@ Base	*generate(void)
 void	identify(Base *p)
 {
 	if (isA(p))
-		cout << "A" << endl;
+		std::cout << "A" << std::endl;
 	else if (isB(p))
-		cout << "B" << endl;
+		std::cout << "B" << std::endl;
 	else if (isC(p))
-		cout << "C" << endl;
+		std::cout << "C" << std::endl;
 }
 
 void	identify(Base &p)
 {
-	if (isA(&p))
-		cout << "A" << endl;
-	else if (isB(&p))
-		cout << "B" << endl;
-	else if (isC(&p))
-		cout << "C" << endl;
+	try
+	{
+		A &s = dynamic_cast<A&>(p);
+		std::cout << "A" << std::endl;
+		(void)s;
+
+	}
+	catch(std::exception &e){}
+	try
+	{
+		B &s = dynamic_cast<B&>(p);
+		std::cout << "B" << std::endl;
+		(void)s;
+
+	}
+	catch(std::exception &e){}
+	try
+	{
+		C &s = dynamic_cast<C&>(p);
+		std::cout << "C" << std::endl;
+		(void)s;
+
+	}
+	catch(std::exception &e){
+	}
 }
 
 bool	isA(Base *p)
@@ -69,8 +88,7 @@ int	main()
 	Base *p = generate();
 
 	identify(p);
-	identify(p);
-	identify(p);
+	identify(*p);
 
 	delete p;
 	return 0;
